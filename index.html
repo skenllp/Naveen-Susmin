@@ -449,12 +449,13 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
 
 /* Soft dark halo behind text blocks so info stays readable over the bright photo */
 #story .content::before,#couple .content::before,#scripture .content::before,#savedate .content::before,
-#venues .content::before,#countdown .content::before{
+#venues .content::before,#wishwall .content::before,#countdown .content::before{
   content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(ellipse 95% 62% at 50% 50%, rgba(22,18,10,0.5) 0%, rgba(22,18,10,0.34) 55%, rgba(22,18,10,0) 100%);
 }
 #couple .content::before{background:radial-gradient(ellipse 100% 68% at 50% 52%, rgba(22,18,10,0.52) 0%, rgba(22,18,10,0.36) 60%, rgba(22,18,10,0) 100%);}
 #story .content::before{background:radial-gradient(ellipse 100% 75% at 50% 50%, rgba(22,18,10,0.58) 0%, rgba(22,18,10,0.4) 60%, rgba(22,18,10,0) 100%);}
+#wishwall .content::before{background:radial-gradient(ellipse 100% 70% at 50% 50%, rgba(22,18,10,0.55) 0%, rgba(22,18,10,0.38) 60%, rgba(22,18,10,0) 100%);}
 
 /* Shared Tuscan-terrace theme for every section below the hero (except Our Story) */
 .theme-tuscan .bg-media{ object-position:center 38%; }
@@ -834,7 +835,98 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
 }
 
 /* ============================================================
-   09 COUNTDOWN
+   09 WISH WALL
+   ============================================================ */
+#wishwall .bg-media{ object-position:center 45%; }
+#wishwall .bg-scrim{
+  background:linear-gradient(180deg, rgba(46,42,34,0.22) 0%, rgba(46,42,34,0.14) 28%, rgba(46,42,34,0.2) 55%, rgba(35,30,21,0.42) 100%);
+}
+#wishwall .content{
+  padding:80px 24px 70px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--ivory);
+}
+#wishwall .wishes-head{
+  margin-bottom:20px;
+}
+#wishwall .wishes-head h2{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:clamp(26px,7.5vw,32px);
+  margin:8px 0 4px;
+  color:var(--ivory);
+  text-shadow:0 2px 8px rgba(0,0,0,0.8), 0 3px 20px rgba(0,0,0,0.6);
+}
+#wishwall .wishes-sub{
+  font-family:var(--font-script);
+  font-size:22px;
+  color:var(--gold-soft);
+}
+.wish-card{
+  width:100%;
+  max-width:350px;
+  background:rgba(20,17,10,0.48);
+  border:1px solid rgba(198,161,91,0.48);
+  border-radius:14px;
+  padding:28px 22px 26px;
+  text-align:center;
+  color:var(--ivory);
+  backdrop-filter:blur(4px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  position:relative;
+}
+.wish-text{
+  font-family:var(--font-body);
+  font-style:italic;
+  font-size:clamp(17.5px,5vw,20px);
+  line-height:1.75;
+  color:var(--ivory);
+  margin:0 0 16px;
+  text-shadow:0 1px 6px rgba(0,0,0,0.85);
+}
+.wish-closing{
+  font-family:var(--font-script);
+  font-size:22px;
+  color:var(--gold-soft);
+  margin-bottom:8px;
+  display:block;
+}
+.wish-family-names{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(16px,4.6vw,18px);
+  letter-spacing:0.04em;
+  color:var(--ivory);
+  margin:0;
+  line-height:1.5;
+  text-shadow:0 2px 8px rgba(0,0,0,0.8);
+}
+.wish-family-pills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:14px;
+}
+.wish-pill{
+  font-family:var(--font-label);
+  font-size:10.5px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--champagne);
+  padding:4px 12px;
+  background:rgba(198,161,91,0.12);
+  border:1px solid rgba(198,161,91,0.35);
+  border-radius:20px;
+}
+.wish-btn{
+  background:rgba(198,161,91,0.18);
+}
+
+/* ============================================================
+   10 COUNTDOWN
    ============================================================ */
 #countdown{ position:relative; }
 #countdown .bg-media{ object-position:center 60%; }
@@ -1286,7 +1378,45 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
   </script>
 
   <!-- ============================================================
-       09 — COUNTDOWN  (target set in script.js -> CONFIG.weddingDate)
+       09 — WISH WALL
+  ============================================================ -->
+  <section class="page imgpage theme-tuscan" id="wishwall">
+    <div class="page-frame"></div>
+    <img class="bg-media" src="assets/bg-tuscan.jpg" alt="">
+    <div class="bg-scrim"></div>
+    <div class="content">
+      <div class="wishes-head reveal" style="--i:0">
+        <div class="eyebrow">Wish Wall</div>
+        <h2>Family Blessings</h2>
+        <div class="wishes-sub">From the hearts of our beloved</div>
+      </div>
+
+      <div class="wish-card reveal" style="--i:1">
+        <svg class="ornament-gold" viewBox="0 0 60 24" fill="none" style="margin-bottom:14px;"><path d="M2 12H24M36 12H58" stroke="#D9BE8B" stroke-width="1"/><circle cx="30" cy="12" r="4" stroke="#D9BE8B" stroke-width="1"/></svg>
+        <p class="wish-text">&ldquo;Rooted in love and blessed by togetherness, we look forward to standing as one family to welcome you to this celebration of love.&rdquo;</p>
+        <div class="divider"></div>
+        <div class="wish-closing">With endless affection,</div>
+        <div class="wish-family-names">Tom, Praveen, Anupa, Rosu &amp; Josu</div>
+        <div class="wish-family-pills">
+          <span class="wish-pill">Tom</span>
+          <span class="wish-pill">Praveen</span>
+          <span class="wish-pill">Anupa</span>
+          <span class="wish-pill">Rosu</span>
+          <span class="wish-pill">Josu</span>
+        </div>
+      </div>
+
+      <a class="venue-btn wish-btn reveal" style="--i:2; margin-top:22px;" href="https://api.whatsapp.com/send?text=Heartiest%20congratulations%20Naveen%20%26%20Susmin!%20Wishing%20you%20both%20a%20lifetime%20of%20love%2C%20joy%2C%20and%20endless%20blessings.%20%E2%9C%A8%F0%9F%92%8D" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        Send Your Wishes
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10 — COUNTDOWN  (target set in script.js -> CONFIG.weddingDate)
   ============================================================ -->
   <section class="page imgpage theme-tuscan" id="countdown">
     <div class="page-frame"></div>
@@ -1308,7 +1438,7 @@ body[style*="overflow: hidden"] .page:not(#open):not(#hero){
   </section>
 
   <!-- ============================================================
-       10 — WITH LOVE / FOOTER   (assets/couple-footer-bg.jpg)
+       11 — WITH LOVE / FOOTER   (assets/couple-footer-bg.jpg)
   ============================================================ -->
   <section class="page imgpage" id="thankyou">
     <div class="page-frame"></div>
