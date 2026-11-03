@@ -8,8 +8,8 @@ const CONFIG = {
   weddingDate: '2027-01-04T10:00:00+05:30',
 
   // "View Location" links
-  ceremonyMapUrl: "https://maps.google.com/?q=St.+Mary's+Syro-Malabar+Church,+Kodanchery",
-  receptionMapUrl: "https://maps.google.com/?q=Mar+Sebastian+Valloppilly+Memorial+Auditorium,+Kodencherry"
+  ceremonyMapUrl: "https://share.google/Jj4pSTHNWPU1xVkvn",
+  receptionMapUrl: "https://maps.app.goo.gl/Qt2ti6NpRvbedtjn6"
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -131,14 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* ---------- VENUE MAP LINK ---------- */
+  /* ---------- VENUE MAP LINKS ---------- */
   const ceremonyLink = document.getElementById('ceremonyMapLink');
-  if (ceremonyLink){
-    if (CONFIG.ceremonyMapUrl){
-      ceremonyLink.href = CONFIG.ceremonyMapUrl;
-    } else {
-      ceremonyLink.style.display = 'none'; // no map URL supplied yet
-    }
+  if (ceremonyLink && CONFIG.ceremonyMapUrl){
+    ceremonyLink.href = CONFIG.ceremonyMapUrl;
+  }
+  const receptionLink = document.getElementById('receptionMapLink');
+  if (receptionLink && CONFIG.receptionMapUrl){
+    receptionLink.href = CONFIG.receptionMapUrl;
   }
 
   const bgMusic     = document.getElementById('bgMusic');
