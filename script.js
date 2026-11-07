@@ -9,7 +9,7 @@ const CONFIG = {
 
   // "View Location" links
   ceremonyMapUrl: "https://share.google/Jj4pSTHNWPU1xVkvn",
-  receptionMapUrl: "https://maps.app.goo.gl/Qt2ti6NpRvbedtjn6"
+  receptionMapUrl: "https://www.google.com/search?client=ms-android-samsung-rvo1&hs=5PHW&sca_esv=48580b77739e7a83&hl=en-US&cs=0&sxsrf=AKL5yDiXSDH9ml_EedfcHGQ7UT2SJ0aCrA:1793899464387&kgmid=/g/11f9w5ck50&q=kodenchery+parish+hall&shem=dlvs1,epsd1,ltae,rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/4&kgs=574b13a0994c0f49&utm_source=dlvs1,epsd1,ltae,rimspwouoe,sh/x/loc/uni/m1/4#ebo=0"
 };
 
 document.addEventListener('DOMContentLoaded', () => {
